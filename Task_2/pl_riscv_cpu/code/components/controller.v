@@ -10,7 +10,7 @@ module controller (
     output       ALUSrc,
     output       RegWrite, Branch, Jump, Jalr,
     output [1:0] ImmSrc,
-    output [2:0] ALUControl
+    output [3:0] ALUControl
 );
 
 wire [1:0] ALUOp;

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Oct 16 19:43:40 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : pl_riscv_cpu
+Top-level Entity Name : pl_riscv_cpu
+Family : Cyclone IV E
+Device : EP4CE15F23C6
+Timing Models : Final
+Total logic elements : 5,765 / 15,408 ( 37 % )
+    Total combinational functions : 4,532 / 15,408 ( 29 % )
+    Dedicated logic registers : 2,680 / 15,408 ( 17 % )
+Total registers : 2680
+Total pins : 292 / 344 ( 85 % )
+Total virtual pins : 0
+Total memory bits : 2,048 / 516,096 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

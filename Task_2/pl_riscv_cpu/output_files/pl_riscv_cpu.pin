@@ -1,0 +1,555 @@
+ -- Copyright (C) 2025  Altera Corporation. All rights reserved.
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, the Altera Quartus Prime License Agreement,
+ -- the Altera IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Altera and sold by Altera or its authorized distributors.  Please
+ -- refer to the Altera Software License Subscription Agreements 
+ -- on the Quartus Prime software download page.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1:       2.5V
+ --                  Bank 2:       2.5V
+ --                  Bank 3:       2.5V
+ --                  Bank 4:       2.5V
+ --                  Bank 5:       2.5V
+ --                  Bank 6:       2.5V
+ --                  Bank 7:       2.5V
+ --                  Bank 8:       2.5V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+CHIP  "pl_riscv_cpu"  ASSIGNED TO AN: EP4CE15F23C6
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND                          : A1        : gnd    :                   :         :           :                
+VCCIO8                       : A2        : power  :                   : 2.5V    : 8         :                
+WriteData[29]                : A3        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A4        :        :                   :         : 8         :                
+Ext_WriteData[9]             : A5        : input  : 2.5 V             :         : 8         : N              
+PCW[20]                      : A6        : output : 2.5 V             :         : 8         : N              
+WriteData[20]                : A7        : output : 2.5 V             :         : 8         : N              
+PCW[27]                      : A8        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A9        :        :                   :         : 8         :                
+WriteDataW[21]               : A10       : output : 2.5 V             :         : 8         : N              
+Ext_DataAdr[13]              : A11       : input  : 2.5 V             :         : 8         : N              
+Ext_DataAdr[9]               : A12       : input  : 2.5 V             :         : 7         : N              
+Ext_WriteData[18]            : A13       : input  : 2.5 V             :         : 7         : N              
+DataAdr[14]                  : A14       : output : 2.5 V             :         : 7         : N              
+ReadData[11]                 : A15       : output : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A16       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A17       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A18       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A19       :        :                   :         : 7         :                
+WriteData[1]                 : A20       : output : 2.5 V             :         : 7         : N              
+VCCIO7                       : A21       : power  :                   : 2.5V    : 7         :                
+GND                          : A22       : gnd    :                   :         :           :                
+Result[15]                   : AA1       : output : 2.5 V             :         : 2         : N              
+GND                          : AA2       : gnd    :                   :         :           :                
+ALUResultW[10]               : AA3       : output : 2.5 V             :         : 3         : N              
+ReadData[24]                 : AA4       : output : 2.5 V             :         : 3         : N              
+Ext_DataAdr[27]              : AA5       : input  : 2.5 V             :         : 3         : N              
+VCCIO3                       : AA6       : power  :                   : 2.5V    : 3         :                
+DataAdr[10]                  : AA7       : output : 2.5 V             :         : 3         : N              
+ALUResultW[28]               : AA8       : output : 2.5 V             :         : 3         : N              
+ALUResultW[31]               : AA9       : output : 2.5 V             :         : 3         : N              
+PCW[7]                       : AA10      : output : 2.5 V             :         : 3         : N              
+GND+                         : AA11      :        :                   :         : 3         :                
+GND+                         : AA12      :        :                   :         : 4         :                
+ReadData[21]                 : AA13      : output : 2.5 V             :         : 4         : N              
+PCW[21]                      : AA14      : output : 2.5 V             :         : 4         : N              
+PCW[4]                       : AA15      : output : 2.5 V             :         : 4         : N              
+ALUResultW[2]                : AA16      : output : 2.5 V             :         : 4         : N              
+WriteDataW[17]               : AA17      : output : 2.5 V             :         : 4         : N              
+PCW[13]                      : AA18      : output : 2.5 V             :         : 4         : N              
+PCW[14]                      : AA19      : output : 2.5 V             :         : 4         : N              
+Result[14]                   : AA20      : output : 2.5 V             :         : 4         : N              
+DataAdr[15]                  : AA21      : output : 2.5 V             :         : 5         : N              
+GND                          : AA22      : gnd    :                   :         :           :                
+GND                          : AB1       : gnd    :                   :         :           :                
+VCCIO3                       : AB2       : power  :                   : 2.5V    : 3         :                
+Ext_WriteData[0]             : AB3       : input  : 2.5 V             :         : 3         : N              
+DataAdr[13]                  : AB4       : output : 2.5 V             :         : 3         : N              
+ALUResultW[24]               : AB5       : output : 2.5 V             :         : 3         : N              
+GND                          : AB6       : gnd    :                   :         :           :                
+PCW[24]                      : AB7       : output : 2.5 V             :         : 3         : N              
+DataAdr[31]                  : AB8       : output : 2.5 V             :         : 3         : N              
+ReadData[29]                 : AB9       : output : 2.5 V             :         : 3         : N              
+PCW[25]                      : AB10      : output : 2.5 V             :         : 3         : N              
+GND+                         : AB11      :        :                   :         : 3         :                
+GND+                         : AB12      :        :                   :         : 4         :                
+ReadData[22]                 : AB13      : output : 2.5 V             :         : 4         : N              
+ReadData[5]                  : AB14      : output : 2.5 V             :         : 4         : N              
+PCW[18]                      : AB15      : output : 2.5 V             :         : 4         : N              
+PCW[8]                       : AB16      : output : 2.5 V             :         : 4         : N              
+PCW[30]                      : AB17      : output : 2.5 V             :         : 4         : N              
+PCW[9]                       : AB18      : output : 2.5 V             :         : 4         : N              
+ReadData[14]                 : AB19      : output : 2.5 V             :         : 4         : N              
+Result[2]                    : AB20      : output : 2.5 V             :         : 4         : N              
+VCCIO4                       : AB21      : power  :                   : 2.5V    : 4         :                
+GND                          : AB22      : gnd    :                   :         :           :                
+ALUResultW[12]               : B1        : output : 2.5 V             :         : 1         : N              
+ALUResultW[9]                : B2        : output : 2.5 V             :         : 1         : N              
+WriteData[9]                 : B3        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B4        :        :                   :         : 8         :                
+Ext_DataAdr[7]               : B5        : input  : 2.5 V             :         : 8         : N              
+Ext_WriteData[2]             : B6        : input  : 2.5 V             :         : 8         : N              
+PCW[28]                      : B7        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B8        :        :                   :         : 8         :                
+WriteDataW[18]               : B9        : output : 2.5 V             :         : 8         : N              
+Ext_WriteData[1]             : B10       : input  : 2.5 V             :         : 8         : N              
+Ext_DataAdr[14]              : B11       : input  : 2.5 V             :         : 8         : N              
+Ext_DataAdr[10]              : B12       : input  : 2.5 V             :         : 7         : N              
+WriteData[19]                : B13       : output : 2.5 V             :         : 7         : N              
+Ext_DataAdr[3]               : B14       : input  : 2.5 V             :         : 7         : N              
+Ext_DataAdr[6]               : B15       : input  : 2.5 V             :         : 7         : N              
+Ext_WriteData[6]             : B16       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B17       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B18       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B19       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : B20       :        :                   :         : 7         :                
+Ext_WriteData[8]             : B21       : input  : 2.5 V             :         : 6         : N              
+Ext_DataAdr[21]              : B22       : input  : 2.5 V             :         : 6         : N              
+WriteData[2]                 : C1        : output : 2.5 V             :         : 1         : N              
+DataAdr[8]                   : C2        : output : 2.5 V             :         : 1         : N              
+DataAdr[12]                  : C3        : output : 2.5 V             :         : 8         : N              
+Ext_DataAdr[11]              : C4        : input  : 2.5 V             :         : 8         : N              
+GND                          : C5        : gnd    :                   :         :           :                
+WriteData[12]                : C6        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C7        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C8        :        :                   :         : 8         :                
+GND                          : C9        : gnd    :                   :         :           :                
+WriteData[22]                : C10       : output : 2.5 V             :         : 8         : N              
+GND                          : C11       : gnd    :                   :         :           :                
+GND                          : C12       : gnd    :                   :         :           :                
+Ext_DataAdr[5]               : C13       : input  : 2.5 V             :         : 7         : N              
+GND                          : C14       : gnd    :                   :         :           :                
+ALUResultW[4]                : C15       : output : 2.5 V             :         : 7         : N              
+GND                          : C16       : gnd    :                   :         :           :                
+WriteDataW[25]               : C17       : output : 2.5 V             :         : 7         : N              
+GND                          : C18       : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7         :                
+reset                        : C20       : input  : 2.5 V             :         : 6         : N              
+DataAdr[2]                   : C21       : output : 2.5 V             :         : 6         : N              
+DataAdr[7]                   : C22       : output : 2.5 V             :         : 6         : N              
+~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D1        : input  : 2.5 V             :         : 1         : N              
+WriteData[0]                 : D2        : output : 2.5 V             :         : 1         : N              
+GND                          : D3        : gnd    :                   :         :           :                
+VCCIO1                       : D4        : power  :                   : 2.5V    : 1         :                
+VCCIO8                       : D5        : power  :                   : 2.5V    : 8         :                
+DataAdr[5]                   : D6        : output : 2.5 V             :         : 8         : N              
+GND                          : D7        : gnd    :                   :         :           :                
+GND                          : D8        : gnd    :                   :         :           :                
+VCCIO8                       : D9        : power  :                   : 2.5V    : 8         :                
+WriteData[21]                : D10       : output : 2.5 V             :         : 8         : N              
+VCCIO8                       : D11       : power  :                   : 2.5V    : 8         :                
+VCCIO7                       : D12       : power  :                   : 2.5V    : 7         :                
+ALUResultW[5]                : D13       : output : 2.5 V             :         : 7         : N              
+VCCIO7                       : D14       : power  :                   : 2.5V    : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :         : 7         :                
+VCCIO7                       : D16       : power  :                   : 2.5V    : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D17       :        :                   :         : 7         :                
+VCCIO7                       : D18       : power  :                   : 2.5V    : 7         :                
+WriteData[4]                 : D19       : output : 2.5 V             :         : 7         : N              
+Ext_WriteData[27]            : D20       : input  : 2.5 V             :         : 6         : N              
+Ext_WriteData[26]            : D21       : input  : 2.5 V             :         : 6         : N              
+Ext_WriteData[17]            : D22       : input  : 2.5 V             :         : 6         : N              
+Ext_WriteData[25]            : E1        : input  : 2.5 V             :         : 1         : N              
+~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E2        : input  : 2.5 V             :         : 1         : N              
+DataAdr[3]                   : E3        : output : 2.5 V             :         : 1         : N              
+WriteData[5]                 : E4        : output : 2.5 V             :         : 1         : N              
+WriteData[14]                : E5        : output : 2.5 V             :         : 8         : N              
+ALUResultW[11]               : E6        : output : 2.5 V             :         : 8         : N              
+ALUResultW[8]                : E7        : output : 2.5 V             :         : 8         : N              
+VCCIO8                       : E8        : power  :                   : 2.5V    : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E9        :        :                   :         : 8         :                
+Ext_WriteData[21]            : E10       : input  : 2.5 V             :         : 8         : N              
+WriteData[23]                : E11       : output : 2.5 V             :         : 7         : N              
+WriteData[18]                : E12       : output : 2.5 V             :         : 7         : N              
+Ext_WriteData[19]            : E13       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E14       :        :                   :         : 7         :                
+Ext_DataAdr[4]               : E15       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E16       :        :                   :         : 7         :                
+VCCD_PLL2                    : E17       : power  :                   : 1.2V    :           :                
+GNDA2                        : E18       : gnd    :                   :         :           :                
+VCCIO6                       : E19       : power  :                   : 2.5V    : 6         :                
+GND                          : E20       : gnd    :                   :         :           :                
+Ext_WriteData[16]            : E21       : input  : 2.5 V             :         : 6         : N              
+WriteData[30]                : E22       : output : 2.5 V             :         : 6         : N              
+WriteDataW[28]               : F1        : output : 2.5 V             :         : 1         : N              
+Ext_WriteData[15]            : F2        : input  : 2.5 V             :         : 1         : N              
+GND                          : F3        : gnd    :                   :         :           :                
+VCCIO1                       : F4        : power  :                   : 2.5V    : 1         :                
+GNDA3                        : F5        : gnd    :                   :         :           :                
+VCCD_PLL3                    : F6        : power  :                   : 1.2V    :           :                
+Ext_DataAdr[8]               : F7        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F8        :        :                   :         : 8         :                
+Ext_DataAdr[0]               : F9        : input  : 2.5 V             :         : 8         : N              
+WriteData[7]                 : F10       : output : 2.5 V             :         : 8         : N              
+Ext_WriteData[20]            : F11       : input  : 2.5 V             :         : 7         : N              
+ReadData[6]                  : F12       : output : 2.5 V             :         : 7         : N              
+Ext_WriteData[11]            : F13       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F16       :        :                   :         : 7         :                
+DataAdr[4]                   : F17       : output : 2.5 V             :         : 6         : N              
+VCCA2                        : F18       : power  :                   : 2.5V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F19       :        :                   :         : 6         :                
+DataAdr[20]                  : F20       : output : 2.5 V             :         : 6         : N              
+ALUResultW[25]               : F21       : output : 2.5 V             :         : 6         : N              
+WriteData[24]                : F22       : output : 2.5 V             :         : 6         : N              
+clk                          : G1        : input  : 2.5 V             :         : 1         : N              
+GND                          : G2        : gnd    :                   :         :           :                
+Ext_WriteData[12]            : G3        : input  : 2.5 V             :         : 1         : N              
+WriteDataW[12]               : G4        : output : 2.5 V             :         : 1         : N              
+DataAdr[9]                   : G5        : output : 2.5 V             :         : 1         : N              
+VCCA3                        : G6        : power  :                   : 2.5V    :           :                
+Ext_WriteData[31]            : G7        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G8        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G9        :        :                   :         : 8         :                
+Ext_WriteData[28]            : G10       : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G11       :        :                   :         : 8         :                
+WriteDataW[20]               : G12       : output : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G13       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G14       :        :                   :         : 7         :                
+WriteData[17]                : G15       : output : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G16       :        :                   :         : 7         :                
+WriteData[6]                 : G17       : output : 2.5 V             :         : 6         : N              
+WriteData[3]                 : G18       : output : 2.5 V             :         : 6         : N              
+VCCIO6                       : G19       : power  :                   : 2.5V    : 6         :                
+GND                          : G20       : gnd    :                   :         :           :                
+GND+                         : G21       :        :                   :         : 6         :                
+GND+                         : G22       :        :                   :         : 6         :                
+WriteData[25]                : H1        : output : 2.5 V             :         : 1         : N              
+WriteData[31]                : H2        : output : 2.5 V             :         : 1         : N              
+GND                          : H3        : gnd    :                   :         :           :                
+VCCIO1                       : H4        : power  :                   : 2.5V    : 1         :                
+DataAdr[11]                  : H5        : output : 2.5 V             :         : 1         : N              
+WriteData[15]                : H6        : output : 2.5 V             :         : 1         : N              
+DataAdr[6]                   : H7        : output : 2.5 V             :         : 1         : N              
+GND                          : H8        : gnd    :                   :         :           :                
+Ext_DataAdr[12]              : H9        : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H10       :        :                   :         : 8         :                
+WriteData[11]                : H11       : output : 2.5 V             :         : 8         : N              
+Ext_DataAdr[2]               : H12       : input  : 2.5 V             :         : 7         : N              
+WriteDataW[8]                : H13       : output : 2.5 V             :         : 7         : N              
+Ext_MemWrite                 : H14       : input  : 2.5 V             :         : 7         : N              
+ReadData[17]                 : H15       : output : 2.5 V             :         : 7         : N              
+WriteDataW[26]               : H16       : output : 2.5 V             :         : 6         : N              
+WriteDataW[3]                : H17       : output : 2.5 V             :         : 6         : N              
+Ext_WriteData[3]             : H18       : input  : 2.5 V             :         : 6         : N              
+Ext_WriteData[24]            : H19       : input  : 2.5 V             :         : 6         : N              
+WriteDataW[24]               : H20       : output : 2.5 V             :         : 6         : N              
+WriteData[26]                : H21       : output : 2.5 V             :         : 6         : N              
+WriteData[13]                : H22       : output : 2.5 V             :         : 6         : N              
+WriteDataW[29]               : J1        : output : 2.5 V             :         : 1         : N              
+WriteDataW[31]               : J2        : output : 2.5 V             :         : 1         : N              
+WriteDataW[15]               : J3        : output : 2.5 V             :         : 1         : N              
+Ext_WriteData[29]            : J4        : input  : 2.5 V             :         : 1         : N              
+GND                          : J5        : gnd    :                   :         :           :                
+Ext_WriteData[14]            : J6        : input  : 2.5 V             :         : 1         : N              
+WriteDataW[14]               : J7        : output : 2.5 V             :         : 1         : N              
+VCCINT                       : J8        : power  :                   : 1.2V    :           :                
+GND                          : J9        : gnd    :                   :         :           :                
+VCCINT                       : J10       : power  :                   : 1.2V    :           :                
+VCCINT                       : J11       : power  :                   : 1.2V    :           :                
+VCCINT                       : J12       : power  :                   : 1.2V    :           :                
+VCCINT                       : J13       : power  :                   : 1.2V    :           :                
+VCCINT                       : J14       : power  :                   : 1.2V    :           :                
+Ext_WriteData[13]            : J15       : input  : 2.5 V             :         : 6         : N              
+WriteData[8]                 : J16       : output : 2.5 V             :         : 6         : N              
+WriteDataW[6]                : J17       : output : 2.5 V             :         : 6         : N              
+WriteDataW[7]                : J18       : output : 2.5 V             :         : 6         : N              
+GND                          : J19       : gnd    :                   :         :           :                
+VCCIO6                       : J20       : power  :                   : 2.5V    : 6         :                
+WriteData[16]                : J21       : output : 2.5 V             :         : 6         : N              
+Ext_WriteData[30]            : J22       : input  : 2.5 V             :         : 6         : N              
+~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : K1        : input  : 2.5 V             :         : 1         : N              
+~ALTERA_DCLK~                : K2        : output : 2.5 V             :         : 1         : N              
+GND                          : K3        : gnd    :                   :         :           :                
+VCCIO1                       : K4        : power  :                   : 2.5V    : 1         :                
+nCONFIG                      : K5        :        :                   :         : 1         :                
+nSTATUS                      : K6        :        :                   :         : 1         :                
+Ext_WriteData[5]             : K7        : input  : 2.5 V             :         : 1         : N              
+WriteData[28]                : K8        : output : 2.5 V             :         : 1         : N              
+VCCINT                       : K9        : power  :                   : 1.2V    :           :                
+GND                          : K10       : gnd    :                   :         :           :                
+GND                          : K11       : gnd    :                   :         :           :                
+GND                          : K12       : gnd    :                   :         :           :                
+GND                          : K13       : gnd    :                   :         :           :                
+VCCINT                       : K14       : power  :                   : 1.2V    :           :                
+Ext_DataAdr[23]              : K15       : input  : 2.5 V             :         : 6         : N              
+WriteDataW[16]               : K16       : output : 2.5 V             :         : 6         : N              
+ALUResultW[20]               : K17       : output : 2.5 V             :         : 6         : N              
+ALUResultW[23]               : K18       : output : 2.5 V             :         : 6         : N              
+Ext_WriteData[10]            : K19       : input  : 2.5 V             :         : 6         : N              
+MSEL3                        : K20       :        :                   :         : 6         :                
+WriteData[27]                : K21       : output : 2.5 V             :         : 6         : N              
+~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : K22       : output : 2.5 V             :         : 6         : N              
+TMS                          : L1        : input  :                   :         : 1         :                
+TCK                          : L2        : input  :                   :         : 1         :                
+nCE                          : L3        :        :                   :         : 1         :                
+TDO                          : L4        : output :                   :         : 1         :                
+TDI                          : L5        : input  :                   :         : 1         :                
+PCW[6]                       : L6        : output : 2.5 V             :         : 2         : N              
+ReadData[1]                  : L7        : output : 2.5 V             :         : 2         : N              
+Ext_WriteData[23]            : L8        : input  : 2.5 V             :         : 1         : N              
+VCCINT                       : L9        : power  :                   : 1.2V    :           :                
+GND                          : L10       : gnd    :                   :         :           :                
+GND                          : L11       : gnd    :                   :         :           :                
+GND                          : L12       : gnd    :                   :         :           :                
+GND                          : L13       : gnd    :                   :         :           :                
+VCCINT                       : L14       : power  :                   : 1.2V    :           :                
+ALUResultW[18]               : L15       : output : 2.5 V             :         : 6         : N              
+DataAdr[23]                  : L16       : output : 2.5 V             :         : 6         : N              
+MSEL2                        : L17       :        :                   :         : 6         :                
+MSEL1                        : L18       :        :                   :         : 6         :                
+VCCIO6                       : L19       : power  :                   : 2.5V    : 6         :                
+GND                          : L20       : gnd    :                   :         :           :                
+Ext_WriteData[22]            : L21       : input  : 2.5 V             :         : 6         : N              
+WriteData[10]                : L22       : output : 2.5 V             :         : 6         : N              
+ReadData[8]                  : M1        : output : 2.5 V             :         : 2         : N              
+Ext_DataAdr[1]               : M2        : input  : 2.5 V             :         : 2         : N              
+ReadData[7]                  : M3        : output : 2.5 V             :         : 2         : N              
+ALUResultW[1]                : M4        : output : 2.5 V             :         : 2         : N              
+ReadData[2]                  : M5        : output : 2.5 V             :         : 2         : N              
+Ext_WriteData[4]             : M6        : input  : 2.5 V             :         : 2         : N              
+WriteDataW[0]                : M7        : output : 2.5 V             :         : 2         : N              
+WriteDataW[9]                : M8        : output : 2.5 V             :         : 2         : N              
+VCCINT                       : M9        : power  :                   : 1.2V    :           :                
+GND                          : M10       : gnd    :                   :         :           :                
+GND                          : M11       : gnd    :                   :         :           :                
+GND                          : M12       : gnd    :                   :         :           :                
+GND                          : M13       : gnd    :                   :         :           :                
+VCCINT                       : M14       : power  :                   : 1.2V    :           :                
+Ext_DataAdr[17]              : M15       : input  : 2.5 V             :         : 5         : N              
+WriteDataW[23]               : M16       : output : 2.5 V             :         : 5         : N              
+MSEL0                        : M17       :        :                   :         : 6         :                
+CONF_DONE                    : M18       :        :                   :         : 6         :                
+DataAdr[25]                  : M19       : output : 2.5 V             :         : 5         : N              
+DataAdr[21]                  : M20       : output : 2.5 V             :         : 5         : N              
+Ext_DataAdr[20]              : M21       : input  : 2.5 V             :         : 5         : N              
+Ext_DataAdr[19]              : M22       : input  : 2.5 V             :         : 5         : N              
+DataAdr[0]                   : N1        : output : 2.5 V             :         : 2         : N              
+ReadData[19]                 : N2        : output : 2.5 V             :         : 2         : N              
+GND                          : N3        : gnd    :                   :         :           :                
+VCCIO2                       : N4        : power  :                   : 2.5V    : 2         :                
+ReadData[18]                 : N5        : output : 2.5 V             :         : 2         : N              
+PCW[1]                       : N6        : output : 2.5 V             :         : 2         : N              
+MemWrite                     : N7        : output : 2.5 V             :         : 2         : N              
+DataAdr[22]                  : N8        : output : 2.5 V             :         : 2         : N              
+VCCINT                       : N9        : power  :                   : 1.2V    :           :                
+GND                          : N10       : gnd    :                   :         :           :                
+GND                          : N11       : gnd    :                   :         :           :                
+GND                          : N12       : gnd    :                   :         :           :                
+GND                          : N13       : gnd    :                   :         :           :                
+WriteDataW[2]                : N14       : output : 2.5 V             :         : 5         : N              
+Result[3]                    : N15       : output : 2.5 V             :         : 5         : N              
+ALUResultW[19]               : N16       : output : 2.5 V             :         : 5         : N              
+WriteDataW[4]                : N17       : output : 2.5 V             :         : 5         : N              
+ReadData[4]                  : N18       : output : 2.5 V             :         : 5         : N              
+Ext_WriteData[7]             : N19       : input  : 2.5 V             :         : 5         : N              
+ReadData[28]                 : N20       : output : 2.5 V             :         : 5         : N              
+ReadData[0]                  : N21       : output : 2.5 V             :         : 5         : N              
+Ext_DataAdr[18]              : N22       : input  : 2.5 V             :         : 5         : N              
+WriteDataW[5]                : P1        : output : 2.5 V             :         : 2         : N              
+ReadData[10]                 : P2        : output : 2.5 V             :         : 2         : N              
+ReadData[25]                 : P3        : output : 2.5 V             :         : 2         : N              
+DataAdr[1]                   : P4        : output : 2.5 V             :         : 2         : N              
+ReadData[16]                 : P5        : output : 2.5 V             :         : 2         : N              
+Ext_DataAdr[31]              : P6        : input  : 2.5 V             :         : 2         : N              
+Result[21]                   : P7        : output : 2.5 V             :         : 2         : N              
+ReadData[30]                 : P8        : output : 2.5 V             :         : 2         : N              
+VCCINT                       : P9        : power  :                   : 1.2V    :           :                
+VCCINT                       : P10       : power  :                   : 1.2V    :           :                
+VCCINT                       : P11       : power  :                   : 1.2V    :           :                
+VCCINT                       : P12       : power  :                   : 1.2V    :           :                
+VCCINT                       : P13       : power  :                   : 1.2V    :           :                
+ALUResultW[15]               : P14       : output : 2.5 V             :         : 5         : N              
+ALUResultW[22]               : P15       : output : 2.5 V             :         : 5         : N              
+PCW[19]                      : P16       : output : 2.5 V             :         : 5         : N              
+DataAdr[17]                  : P17       : output : 2.5 V             :         : 5         : N              
+VCCIO5                       : P18       : power  :                   : 2.5V    : 5         :                
+GND                          : P19       : gnd    :                   :         :           :                
+ALUResultW[21]               : P20       : output : 2.5 V             :         : 5         : N              
+ReadData[12]                 : P21       : output : 2.5 V             :         : 5         : N              
+ReadData[20]                 : P22       : output : 2.5 V             :         : 5         : N              
+ALUResultW[7]                : R1        : output : 2.5 V             :         : 2         : N              
+ReadData[13]                 : R2        : output : 2.5 V             :         : 2         : N              
+GND                          : R3        : gnd    :                   :         :           :                
+VCCIO2                       : R4        : power  :                   : 2.5V    : 2         :                
+Result[24]                   : R5        : output : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R6        :        :                   :         : 2         :                
+ReadData[15]                 : R7        : output : 2.5 V             :         : 2         : N              
+Result[13]                   : R8        : output : 2.5 V             :         : 2         : N              
+Result[10]                   : R9        : output : 2.5 V             :         : 3         : N              
+ReadData[31]                 : R10       : output : 2.5 V             :         : 3         : N              
+Result[27]                   : R11       : output : 2.5 V             :         : 3         : N              
+WriteDataW[22]               : R12       : output : 2.5 V             :         : 3         : N              
+PCW[3]                       : R13       : output : 2.5 V             :         : 4         : N              
+Result[5]                    : R14       : output : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R15       :        :                   :         : 4         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R16       :        :                   :         : 4         :                
+Ext_DataAdr[25]              : R17       : input  : 2.5 V             :         : 5         : N              
+ALUResultW[14]               : R18       : output : 2.5 V             :         : 5         : N              
+Result[8]                    : R19       : output : 2.5 V             :         : 5         : N              
+ALUResultW[3]                : R20       : output : 2.5 V             :         : 5         : N              
+ALUResultW[17]               : R21       : output : 2.5 V             :         : 5         : N              
+DataAdr[18]                  : R22       : output : 2.5 V             :         : 5         : N              
+GND+                         : T1        :        :                   :         : 2         :                
+GND+                         : T2        :        :                   :         : 2         :                
+Result[9]                    : T3        : output : 2.5 V             :         : 2         : N              
+PCW[16]                      : T4        : output : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T5        :        :                   :         : 2         :                
+VCCA1                        : T6        : power  :                   : 2.5V    :           :                
+Result[18]                   : T7        : output : 2.5 V             :         : 2         : N              
+WriteDataW[27]               : T8        : output : 2.5 V             :         : 3         : N              
+Result[19]                   : T9        : output : 2.5 V             :         : 3         : N              
+PCW[12]                      : T10       : output : 2.5 V             :         : 3         : N              
+ALUResultW[30]               : T11       : output : 2.5 V             :         : 3         : N              
+PCW[5]                       : T12       : output : 2.5 V             :         : 4         : N              
+VCCINT                       : T13       : power  :                   : 1.2V    :           :                
+ALUResultW[6]                : T14       : output : 2.5 V             :         : 4         : N              
+PCW[0]                       : T15       : output : 2.5 V             :         : 4         : N              
+DataAdr[16]                  : T16       : output : 2.5 V             :         : 4         : N              
+Result[28]                   : T17       : output : 2.5 V             :         : 5         : N              
+Result[7]                    : T18       : output : 2.5 V             :         : 5         : N              
+VCCIO5                       : T19       : power  :                   : 2.5V    : 5         :                
+GND                          : T20       : gnd    :                   :         :           :                
+GND+                         : T21       :        :                   :         : 5         :                
+GND+                         : T22       :        :                   :         : 5         :                
+Result[29]                   : U1        : output : 2.5 V             :         : 2         : N              
+ALUResultW[13]               : U2        : output : 2.5 V             :         : 2         : N              
+GND                          : U3        : gnd    :                   :         :           :                
+VCCIO2                       : U4        : power  :                   : 2.5V    : 2         :                
+GNDA1                        : U5        : gnd    :                   :         :           :                
+VCCD_PLL1                    : U6        : power  :                   : 1.2V    :           :                
+ALUResultW[29]               : U7        : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U8        :        :                   :         : 3         :                
+DataAdr[28]                  : U9        : output : 2.5 V             :         : 3         : N              
+Ext_DataAdr[29]              : U10       : input  : 2.5 V             :         : 3         : N              
+ALUResultW[26]               : U11       : output : 2.5 V             :         : 3         : N              
+ALUResultW[0]                : U12       : output : 2.5 V             :         : 4         : N              
+PCW[17]                      : U13       : output : 2.5 V             :         : 4         : N              
+Ext_DataAdr[16]              : U14       : input  : 2.5 V             :         : 4         : N              
+Ext_DataAdr[15]              : U15       : input  : 2.5 V             :         : 4         : N              
+VCCINT                       : U16       : power  :                   : 1.2V    :           :                
+VCCINT                       : U17       : power  :                   : 1.2V    :           :                
+VCCA4                        : U18       : power  :                   : 2.5V    :           :                
+Result[6]                    : U19       : output : 2.5 V             :         : 5         : N              
+Result[12]                   : U20       : output : 2.5 V             :         : 5         : N              
+Result[30]                   : U21       : output : 2.5 V             :         : 5         : N              
+WriteDataW[10]               : U22       : output : 2.5 V             :         : 5         : N              
+Ext_DataAdr[24]              : V1        : input  : 2.5 V             :         : 2         : N              
+WriteDataW[19]               : V2        : output : 2.5 V             :         : 2         : N              
+Ext_DataAdr[26]              : V3        : input  : 2.5 V             :         : 2         : N              
+PCW[26]                      : V4        : output : 2.5 V             :         : 2         : N              
+WriteDataW[30]               : V5        : output : 2.5 V             :         : 3         : N              
+ReadData[26]                 : V6        : output : 2.5 V             :         : 3         : N              
+DataAdr[24]                  : V7        : output : 2.5 V             :         : 3         : N              
+Ext_DataAdr[28]              : V8        : input  : 2.5 V             :         : 3         : N              
+PCW[11]                      : V9        : output : 2.5 V             :         : 3         : N              
+DataAdr[29]                  : V10       : output : 2.5 V             :         : 3         : N              
+DataAdr[27]                  : V11       : output : 2.5 V             :         : 3         : N              
+PCW[10]                      : V12       : output : 2.5 V             :         : 4         : N              
+PCW[15]                      : V13       : output : 2.5 V             :         : 4         : N              
+PCW[22]                      : V14       : output : 2.5 V             :         : 4         : N              
+WriteDataW[1]                : V15       : output : 2.5 V             :         : 4         : N              
+Result[20]                   : V16       : output : 2.5 V             :         : 4         : N              
+VCCD_PLL4                    : V17       : power  :                   : 1.2V    :           :                
+GNDA4                        : V18       : gnd    :                   :         :           :                
+VCCIO5                       : V19       : power  :                   : 2.5V    : 5         :                
+GND                          : V20       : gnd    :                   :         :           :                
+DataAdr[19]                  : V21       : output : 2.5 V             :         : 5         : N              
+ReadData[3]                  : V22       : output : 2.5 V             :         : 5         : N              
+Result[25]                   : W1        : output : 2.5 V             :         : 2         : N              
+ReadData[27]                 : W2        : output : 2.5 V             :         : 2         : N              
+GND                          : W3        : gnd    :                   :         :           :                
+VCCIO2                       : W4        : power  :                   : 2.5V    : 2         :                
+VCCIO3                       : W5        : power  :                   : 2.5V    : 3         :                
+Ext_DataAdr[22]              : W6        : input  : 2.5 V             :         : 3         : N              
+ReadData[9]                  : W7        : output : 2.5 V             :         : 3         : N              
+PCW[29]                      : W8        : output : 2.5 V             :         : 3         : N              
+VCCIO3                       : W9        : power  :                   : 2.5V    : 3         :                
+DataAdr[26]                  : W10       : output : 2.5 V             :         : 3         : N              
+VCCIO3                       : W11       : power  :                   : 2.5V    : 3         :                
+VCCIO4                       : W12       : power  :                   : 2.5V    : 4         :                
+Result[23]                   : W13       : output : 2.5 V             :         : 4         : N              
+PCW[23]                      : W14       : output : 2.5 V             :         : 4         : N              
+PCW[2]                       : W15       : output : 2.5 V             :         : 4         : N              
+VCCIO4                       : W16       : power  :                   : 2.5V    : 4         :                
+Result[0]                    : W17       : output : 2.5 V             :         : 4         : N              
+VCCIO4                       : W18       : power  :                   : 2.5V    : 4         :                
+Result[26]                   : W19       : output : 2.5 V             :         : 5         : N              
+ALUResultW[16]               : W20       : output : 2.5 V             :         : 5         : N              
+Result[4]                    : W21       : output : 2.5 V             :         : 5         : N              
+Result[17]                   : W22       : output : 2.5 V             :         : 5         : N              
+WriteDataW[13]               : Y1        : output : 2.5 V             :         : 2         : N              
+Result[31]                   : Y2        : output : 2.5 V             :         : 2         : N              
+Result[22]                   : Y3        : output : 2.5 V             :         : 3         : N              
+WriteDataW[11]               : Y4        : output : 2.5 V             :         : 3         : N              
+GND                          : Y5        : gnd    :                   :         :           :                
+ReadData[23]                 : Y6        : output : 2.5 V             :         : 3         : N              
+DataAdr[30]                  : Y7        : output : 2.5 V             :         : 3         : N              
+PCW[31]                      : Y8        : output : 2.5 V             :         : 3         : N              
+GND                          : Y9        : gnd    :                   :         :           :                
+Ext_DataAdr[30]              : Y10       : input  : 2.5 V             :         : 3         : N              
+GND                          : Y11       : gnd    :                   :         :           :                
+GND                          : Y12       : gnd    :                   :         :           :                
+Result[16]                   : Y13       : output : 2.5 V             :         : 4         : N              
+VCCIO4                       : Y14       : power  :                   : 2.5V    : 4         :                
+GND                          : Y15       : gnd    :                   :         :           :                
+GND                          : Y16       : gnd    :                   :         :           :                
+ALUResultW[27]               : Y17       : output : 2.5 V             :         : 4         : N              
+GND                          : Y18       : gnd    :                   :         :           :                
+VCCIO5                       : Y19       : power  :                   : 2.5V    : 5         :                
+GND                          : Y20       : gnd    :                   :         :           :                
+Result[11]                   : Y21       : output : 2.5 V             :         : 5         : N              
+Result[1]                    : Y22       : output : 2.5 V             :         : 5         : N              

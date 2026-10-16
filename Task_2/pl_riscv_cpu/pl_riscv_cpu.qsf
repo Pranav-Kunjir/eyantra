@@ -38,17 +38,14 @@
 
 
 set_global_assignment -name FAMILY "Cyclone IV E"
-set_global_assignment -name DEVICE EP4CE22F17C6
+set_global_assignment -name DEVICE AUTO
 set_global_assignment -name TOP_LEVEL_ENTITY pl_riscv_cpu
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:10:38  NOVEMBER 06, 2024"
-set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_SIMULATION_TOOL "Questa Altera FPGA (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
@@ -72,6 +69,10 @@ set_global_assignment -name VERILOG_FILE code/riscv_cpu.v
 set_global_assignment -name VERILOG_FILE code/instr_mem.v
 set_global_assignment -name VERILOG_FILE code/data_mem.v
 set_global_assignment -name VERILOG_FILE code/components/pl_reg_fd.v
+set_global_assignment -name VERILOG_FILE code/components/pl_reg_de.v
+set_global_assignment -name VERILOG_FILE code/components/pl_reg_em.v
+set_global_assignment -name VERILOG_FILE code/components/pl_reg_mw.v
+set_global_assignment -name VERILOG_FILE code/components/hazard_unit.v
 set_global_assignment -name VERILOG_FILE code/components/branching_unit.v
 set_global_assignment -name VERILOG_FILE code/components/reset_ff.v
 set_global_assignment -name VERILOG_FILE code/components/reg_file.v
@@ -85,4 +86,5 @@ set_global_assignment -name VERILOG_FILE code/components/controller.v
 set_global_assignment -name VERILOG_FILE code/components/alu_decoder.v
 set_global_assignment -name VERILOG_FILE code/components/alu.v
 set_global_assignment -name VERILOG_FILE code/components/adder.v
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR simulation/questa -section_id eda_simulation
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

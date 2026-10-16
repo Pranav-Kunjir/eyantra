@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sclk_out",
+					"strict" : false
+				},
+				{
+					"name" : "cs_out",
+					"strict" : false
+				},
+				{
+					"name" : "mosi_output",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "busy",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50MHz",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "miso_input",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_data[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

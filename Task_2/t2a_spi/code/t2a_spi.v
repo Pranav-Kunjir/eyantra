@@ -56,9 +56,87 @@ module t2a_spi
 //////////////////DO NOT MAKE ANY CHANGES ABOVE THIS LINE //////////////////
 
 
-/*
- add your code here 
- */
+    // ---- Sizing constants derived from the parameters (never hard-coded)
+    localparam integer PHASE_W = $clog2(2 * HALF_PERIOD);   // 0 .. 2H-1
+    localparam integer BIT_W   = $clog2(SPI_WORD_LENGTH);   // 0 .. WL-1
+
+    localparam [PHASE_W-1:0] PHASE_ZERO = {PHASE_W{1'b0}};
+    localparam [PHASE_W-1:0] PHASE_MAX  = (2 * HALF_PERIOD) - 1;
+    localparam [PHASE_W-1:0] PHASE_RISE = HALF_PERIOD;
+
+    reg                       active;    // 0 = idle, 1 = transfer in progress
+    reg [PHASE_W-1:0]         phase;     // counts 0 .. 2*HALF_PERIOD-1
+    reg [BIT_W-1:0]           bit_cnt;   // SCLK cycles completed
+    reg [SPI_WORD_LENGTH-1:0] tx_shift;  // transmit shift register
+    reg [SPI_WORD_LENGTH-1:0] rx_shift;  // receive shift register
+
+    // sclk_out is a register driven from the current phase count, so it
+    // runs one cycle behind the counter (giving the H+1 first edge of
+    // Table 3). cs_out and busy are always written together.
+    always @(posedge clk_50MHz or negedge rst_n) begin
+        if (!rst_n) begin
+            active      <= 1'b0;
+            cs_out      <= 1'b1;
+            busy        <= 1'b0;
+            sclk_out    <= 1'b0;
+            mosi_output <= 1'b0;
+            rx_data     <= {SPI_WORD_LENGTH{1'b0}};
+            tx_shift    <= {SPI_WORD_LENGTH{1'b0}};
+            rx_shift    <= {SPI_WORD_LENGTH{1'b0}};
+            phase       <= PHASE_ZERO;
+            bit_cnt     <= {BIT_W{1'b0}};
+        end
+        else if (!active) begin
+            // ---------------- Idle: frame released, SCLK low ----------------
+            cs_out   <= 1'b1;
+            busy     <= 1'b0;
+            sclk_out <= 1'b0;
+            phase    <= PHASE_ZERO;
+            bit_cnt  <= {BIT_W{1'b0}};
+
+            if (start) begin
+                // ---- Cycle 0: cs/busy assert, capture data, MSB on MOSI ----
+                active      <= 1'b1;
+                cs_out      <= 1'b0;
+                busy        <= 1'b1;
+                sclk_out    <= 1'b0;
+                tx_shift    <= tx_data;
+                rx_shift    <= {SPI_WORD_LENGTH{1'b0}};
+                mosi_output <= tx_data[SPI_WORD_LENGTH-1];
+                phase       <= PHASE_ZERO;
+                bit_cnt     <= {BIT_W{1'b0}};
+            end
+        end
+        else begin
+            // ---------------------- Active transfer ----------------------
+            if (phase == PHASE_MAX)
+                phase <= PHASE_ZERO;
+            else
+                phase <= phase + 1'b1;
+
+            if (phase == PHASE_RISE) begin
+                // Rising SCLK edge: sample MISO, raise SCLK.
+                sclk_out <= 1'b1;
+                rx_shift <= {rx_shift[SPI_WORD_LENGTH-2:0], miso_input};
+            end
+            else if ((phase == PHASE_ZERO) && sclk_out) begin
+                // Falling SCLK edge: move MOSI on to the next bit.
+                sclk_out <= 1'b0;
+                if (bit_cnt == SPI_WORD_LENGTH - 1) begin
+                    // Last bit done: release frame, publish received word.
+                    active  <= 1'b0;
+                    cs_out  <= 1'b1;
+                    busy    <= 1'b0;
+                    rx_data <= rx_shift;
+                end
+                else begin
+                    bit_cnt     <= bit_cnt + 1'b1;
+                    tx_shift    <= {tx_shift[SPI_WORD_LENGTH-2:0], 1'b0};
+                    mosi_output <= tx_shift[SPI_WORD_LENGTH-2];
+                end
+            end
+        end
+    end
 
 //////////////////DO NOT MAKE ANY CHANGES BELOW THIS LINE //////////////////
 

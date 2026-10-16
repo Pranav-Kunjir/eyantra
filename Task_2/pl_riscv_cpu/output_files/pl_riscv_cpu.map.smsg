@@ -1,0 +1,1 @@
+Warning (10273): Verilog HDL warning at imm_extend.v(19): extended using "x" or "z" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/imm_extend.v Line: 19

@@ -1,0 +1,844 @@
+Analysis & Synthesis report for pl_riscv_cpu
+Fri Oct 16 19:39:28 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0|altsyncram_9oo1:auto_generated
+ 13. Source assignments for riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1|altsyncram_9oo1:auto_generated
+ 14. Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg
+ 15. Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|adder:pcadd4
+ 16. Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf
+ 17. Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|alu:alu
+ 18. Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|mux4:resultmux
+ 19. Parameter Settings for User Entity Instance: instr_mem:instrmem
+ 20. Parameter Settings for User Entity Instance: data_mem:datamem
+ 21. Parameter Settings for Inferred Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|alu:alu"
+ 25. Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde"
+ 26. Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|adder:pcadd4"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Oct 16 19:39:27 2026           ;
+; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                      ; pl_riscv_cpu                                    ;
+; Top-level Entity Name              ; pl_riscv_cpu                                    ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 6,756                                           ;
+;     Total combinational functions  ; 4,532                                           ;
+;     Dedicated logic registers      ; 2,680                                           ;
+; Total registers                    ; 2680                                            ;
+; Total pins                         ; 292                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 2,048                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                            ; pl_riscv_cpu       ; pl_riscv_cpu       ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-12        ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                                                     ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                                                                         ; Library ;
++----------------------------------------------------------------------------------------------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v                            ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v                            ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/riscv_cpu.v                               ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/riscv_cpu.v                               ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v                               ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v                               ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/data_mem.v                                ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/data_mem.v                                ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_fd.v                    ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_fd.v                    ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_de.v                    ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_de.v                    ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_em.v                    ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_em.v                    ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_mw.v                    ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_mw.v                    ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/hazard_unit.v                  ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/hazard_unit.v                  ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/branching_unit.v               ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/branching_unit.v               ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reset_ff.v                     ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reset_ff.v                     ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reg_file.v                     ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reg_file.v                     ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/mux4.v                         ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/mux4.v                         ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/main_decoder.v                 ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/main_decoder.v                 ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/imm_extend.v                   ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/imm_extend.v                   ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v                     ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v                     ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/controller.v                   ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/controller.v                   ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu_decoder.v                  ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu_decoder.v                  ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu.v                          ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu.v                          ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/adder.v                        ; yes             ; User Verilog HDL File                       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/adder.v                        ;         ;
+; code/rv32i_test.hex                                                                                                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/rv32i_test.hex                            ;         ;
+; altsyncram.tdf                                                                                                       ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                ;         ;
+; stratix_ram_block.inc                                                                                                ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                         ;         ;
+; lpm_mux.inc                                                                                                          ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                   ;         ;
+; lpm_decode.inc                                                                                                       ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                ;         ;
+; aglobal251.inc                                                                                                       ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/aglobal251.inc                                                ;         ;
+; a_rdenreg.inc                                                                                                        ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                 ;         ;
+; altrom.inc                                                                                                           ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altrom.inc                                                    ;         ;
+; altram.inc                                                                                                           ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altram.inc                                                    ;         ;
+; altdpram.inc                                                                                                         ; yes             ; Megafunction                                ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altdpram.inc                                                  ;         ;
+; altsyncram_9oo1.tdf                                                                                                  ; yes             ; Auto-Found AHDL File                        ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/altsyncram_9oo1.tdf                         ;         ;
+; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ; yes             ; Auto-Found Memory Initialization File       ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ;         ;
++----------------------------------------------------------------------------------------------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 6,756     ;
+;                                             ;           ;
+; Total combinational functions               ; 4532      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 3774      ;
+;     -- 3 input functions                    ; 643       ;
+;     -- <=2 input functions                  ; 115       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 4360      ;
+;     -- arithmetic mode                      ; 172       ;
+;                                             ;           ;
+; Total registers                             ; 2680      ;
+;     -- Dedicated logic registers            ; 2680      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 292       ;
+; Total memory bits                           ; 2048      ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 2744      ;
+; Total fan-out                               ; 26300     ;
+; Average fan-out                             ; 3.35      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                              ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name     ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |pl_riscv_cpu                                   ; 4532 (68)           ; 2680 (0)                  ; 2048        ; 0            ; 0       ; 0         ; 292  ; 0            ; |pl_riscv_cpu                                                                                                      ; pl_riscv_cpu    ; work         ;
+;    |data_mem:datamem|                           ; 2898 (2898)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|data_mem:datamem                                                                                     ; data_mem        ; work         ;
+;    |instr_mem:instrmem|                         ; 131 (131)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|instr_mem:instrmem                                                                                   ; instr_mem       ; work         ;
+;    |riscv_cpu:rvcpu|                            ; 1435 (0)            ; 632 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu                                                                                      ; riscv_cpu       ; work         ;
+;       |datapath:dp|                             ; 1435 (216)          ; 632 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp                                                                          ; datapath        ; work         ;
+;          |adder:pcadd4|                         ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|adder:pcadd4                                                             ; adder           ; work         ;
+;          |alu:alu|                              ; 636 (636)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu                                                                  ; alu             ; work         ;
+;          |branching_unit:bu|                    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|branching_unit:bu                                                        ; branching_unit  ; work         ;
+;          |controller:c|                         ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|controller:c                                                             ; controller      ; work         ;
+;             |alu_decoder:ad|                    ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|controller:c|alu_decoder:ad                                              ; alu_decoder     ; work         ;
+;             |main_decoder:md|                   ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|controller:c|main_decoder:md                                             ; main_decoder    ; work         ;
+;          |hazard_unit:hu|                       ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|hazard_unit:hu                                                           ; hazard_unit     ; work         ;
+;          |imm_extend:ext|                       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|imm_extend:ext                                                           ; imm_extend      ; work         ;
+;          |mux4:resultmux|                       ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|mux4:resultmux                                                           ; mux4            ; work         ;
+;          |pl_reg_de:plde|                       ; 255 (255)           ; 206 (206)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde                                                           ; pl_reg_de       ; work         ;
+;          |pl_reg_em:plem|                       ; 0 (0)               ; 170 (170)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem                                                           ; pl_reg_em       ; work         ;
+;          |pl_reg_fd:plfd|                       ; 132 (132)           ; 90 (90)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd                                                           ; pl_reg_fd       ; work         ;
+;          |pl_reg_mw:plmw|                       ; 0 (0)               ; 134 (134)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_mw:plmw                                                           ; pl_reg_mw       ; work         ;
+;          |reg_file:rf|                          ; 2 (2)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reg_file:rf                                                              ; reg_file        ; work         ;
+;             |altsyncram:reg_file_arr_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0                                ; altsyncram      ; work         ;
+;                |altsyncram_9oo1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0|altsyncram_9oo1:auto_generated ; altsyncram_9oo1 ; work         ;
+;             |altsyncram:reg_file_arr_rtl_1|     ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1                                ; altsyncram      ; work         ;
+;                |altsyncram_9oo1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1|altsyncram_9oo1:auto_generated ; altsyncram_9oo1 ; work         ;
+;          |reset_ff:pcreg|                       ; 33 (33)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg                                                           ; reset_ff        ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                                                    ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------------------------------------------------------------------+
+; Name                                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------------------------------------------------------------------+
+; riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0|altsyncram_9oo1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ;
+; riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1|altsyncram_9oo1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                               ;
++-------------------------------------------------------------+--------------------------------------------------------------------+
+; Register name                                               ; Reason for Removal                                                 ;
++-------------------------------------------------------------+--------------------------------------------------------------------+
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem|PCPlus4M[0]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem|PCM[0]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem|PCPlus4M[1]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem|PCM[1]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[21..31]  ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[20] ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|PCPlus4E[0]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|PCE[0]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|PCPlus4E[1]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|PCE[1]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|PCPlus4D[0]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|PCD[0]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|PCPlus4D[1]      ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|PCD[1]      ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[6,7,9]   ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[20] ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|InstrD[1]        ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|InstrD[0]   ;
+; riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|InstrD[27,29,31] ; Merged with riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|InstrD[26]  ;
+; Total Number of Removed Registers = 24                      ;                                                                    ;
++-------------------------------------------------------------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2680  ;
+; Number of registers using Synchronous Clear  ; 77    ;
+; Number of registers using Synchronous Load   ; 50    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2160  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|AuiPCE[6]   ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|AuiPCE[19]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[4]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|ImmExtE[12] ;
+; 3:1                ; 84 bits   ; 168 LEs       ; 84 LEs               ; 84 LEs                 ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|PCD[27]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|RD2E[13]    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde|RD1E[18]    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg|q[1]        ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg|q[3]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |pl_riscv_cpu|data_mem:datamem|Mux0                                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|mux4:resultmux|y[17]       ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|comb               ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|comb               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|ShiftRight0        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd|InstrD      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|data_mem:datamem|Mux27                                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|RD2E_fwd[12]               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|SrcAE[21]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|ShiftRight0        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|ShiftRight0        ;
+; 17:1               ; 15 bits   ; 165 LEs       ; 90 LEs               ; 75 LEs                 ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|Mux21              ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |pl_riscv_cpu|data_mem:datamem|Mux46                                 ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|Mux8               ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|Mux6               ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 18 LEs               ; 8 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|Mux2               ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |pl_riscv_cpu|data_mem:datamem|Mux54                                 ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 20 LEs               ; 8 LEs                  ; No         ; |pl_riscv_cpu|riscv_cpu:rvcpu|datapath:dp|alu:alu|Mux1               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0|altsyncram_9oo1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                            ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                             ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1|altsyncram_9oo1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                            ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                             ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|adder:pcadd4 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|alu:alu ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscv_cpu:rvcpu|datapath:dp|mux4:resultmux ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: instr_mem:instrmem ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                         ;
+; ADDR_WIDTH     ; 32    ; Signed Integer                         ;
+; MEM_SIZE       ; 512   ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_mem:datamem ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                       ;
+; ADDR_WIDTH     ; 32    ; Signed Integer                       ;
+; MEM_SIZE       ; 64    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0                                                     ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                                                                                ; Type           ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                                                                                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                                                                                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                                                                                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                                                                                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                                                                                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                                                                                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                                                                                            ; Untyped        ;
+; WIDTH_A                            ; 32                                                                                                                   ; Untyped        ;
+; WIDTHAD_A                          ; 5                                                                                                                    ; Untyped        ;
+; NUMWORDS_A                         ; 32                                                                                                                   ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                                                                                         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                                                                                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                                                                                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; WIDTH_B                            ; 32                                                                                                                   ; Untyped        ;
+; WIDTHAD_B                          ; 5                                                                                                                    ; Untyped        ;
+; NUMWORDS_B                         ; 32                                                                                                                   ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                                                                                               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                                                                               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                                                                               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                                                                                               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                                                                                         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                                                                                               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                                                                                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                                                                                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                                                                                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                                                                                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                                                                                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                                                                                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                                                                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                                                                                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                                                                                 ; Untyped        ;
+; INIT_FILE                          ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                                                                               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                                                                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                                                                                      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                                                                                      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                                                                                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                                                                                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                                                                                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                                                                                         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_9oo1                                                                                                      ; Untyped        ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1                                                     ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                                                                                ; Type           ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                                                                                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                                                                                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                                                                                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                                                                                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                                                                                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                                                                                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                                                                                            ; Untyped        ;
+; WIDTH_A                            ; 32                                                                                                                   ; Untyped        ;
+; WIDTHAD_A                          ; 5                                                                                                                    ; Untyped        ;
+; NUMWORDS_A                         ; 32                                                                                                                   ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                                                                                         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                                                                                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                                                                                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                                                                                 ; Untyped        ;
+; WIDTH_B                            ; 32                                                                                                                   ; Untyped        ;
+; WIDTHAD_B                          ; 5                                                                                                                    ; Untyped        ;
+; NUMWORDS_B                         ; 32                                                                                                                   ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                                                                                               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                                                                               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                                                                               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                                                                                               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                                                                                         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                                                                                               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                                                                                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                                                                                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                                                                                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                                                                                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                                                                                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                                                                                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                                                                                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                                                                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                                            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                                                                                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                                                                                 ; Untyped        ;
+; INIT_FILE                          ; //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                                                                               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                                                                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                                                                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                                                                                      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                                                                                      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                                                                                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                                                                                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                                                                                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                                                                                         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_9oo1                                                                                                      ; Untyped        ;
++------------------------------------+----------------------------------------------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                  ;
++-------------------------------------------+-----------------------------------------------------------------------+
+; Name                                      ; Value                                                                 ;
++-------------------------------------------+-----------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                     ;
+; Entity Instance                           ; riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
+;     -- WIDTH_A                            ; 32                                                                    ;
+;     -- NUMWORDS_A                         ; 32                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
+;     -- WIDTH_B                            ; 32                                                                    ;
+;     -- NUMWORDS_B                         ; 32                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
+; Entity Instance                           ; riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
+;     -- WIDTH_A                            ; 32                                                                    ;
+;     -- NUMWORDS_A                         ; 32                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
+;     -- WIDTH_B                            ; 32                                                                    ;
+;     -- NUMWORDS_B                         ; 32                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
++-------------------------------------------+-----------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|alu:alu"                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; zero ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde" ;
++------+-------+----------+----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                      ;
++------+-------+----------+----------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                 ;
++------+-------+----------+----------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "riscv_cpu:rvcpu|datapath:dp|adder:pcadd4" ;
++----------+-------+----------+----------------------------------------+
+; Port     ; Type  ; Severity ; Details                                ;
++----------+-------+----------+----------------------------------------+
+; b[31..3] ; Input ; Info     ; Stuck at GND                           ;
+; b[1..0]  ; Input ; Info     ; Stuck at GND                           ;
+; b[2]     ; Input ; Info     ; Stuck at VCC                           ;
++----------+-------+----------+----------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 292                         ;
+; cycloneiii_ff         ; 2680                        ;
+;     ENA               ; 2128                        ;
+;     ENA SCLR          ; 2                           ;
+;     ENA SCLR SLD      ; 30                          ;
+;     SCLR              ; 25                          ;
+;     SCLR SLD          ; 20                          ;
+;     plain             ; 475                         ;
+; cycloneiii_lcell_comb ; 4532                        ;
+;     arith             ; 172                         ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 143                         ;
+;     normal            ; 4360                        ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 500                         ;
+;         4 data inputs ; 3774                        ;
+; cycloneiii_ram_block  ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 26.30                       ;
+; Average LUT depth     ; 18.98                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:17     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Fri Oct 16 19:38:45 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pl_riscv_cpu -c pl_riscv_cpu
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file code/pl_riscv_cpu.v
+    Info (12023): Found entity 1: pl_riscv_cpu File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/riscv_cpu.v
+    Info (12023): Found entity 1: riscv_cpu File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/riscv_cpu.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/instr_mem.v
+    Info (12023): Found entity 1: instr_mem File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/data_mem.v
+    Info (12023): Found entity 1: data_mem File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/data_mem.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/pl_reg_fd.v
+    Info (12023): Found entity 1: pl_reg_fd File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_fd.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/pl_reg_de.v
+    Info (12023): Found entity 1: pl_reg_de File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_de.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/pl_reg_em.v
+    Info (12023): Found entity 1: pl_reg_em File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_em.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/pl_reg_mw.v
+    Info (12023): Found entity 1: pl_reg_mw File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/pl_reg_mw.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/hazard_unit.v
+    Info (12023): Found entity 1: hazard_unit File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/hazard_unit.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/branching_unit.v
+    Info (12023): Found entity 1: branching_unit File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/branching_unit.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/reset_ff.v
+    Info (12023): Found entity 1: reset_ff File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reset_ff.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/reg_file.v
+    Info (12023): Found entity 1: reg_file File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/reg_file.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/mux4.v
+    Info (12023): Found entity 1: mux4 File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/mux4.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/mux3.v
+    Info (12023): Found entity 1: mux3 File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/mux3.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/mux2.v
+    Info (12023): Found entity 1: mux2 File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/mux2.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/main_decoder.v
+    Info (12023): Found entity 1: main_decoder File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/main_decoder.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/imm_extend.v
+    Info (12023): Found entity 1: imm_extend File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/imm_extend.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/datapath.v
+    Info (12023): Found entity 1: datapath File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/controller.v
+    Info (12023): Found entity 1: controller File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/controller.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/alu_decoder.v
+    Info (12023): Found entity 1: alu_decoder File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu_decoder.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/alu.v
+    Info (12023): Found entity 1: alu File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/alu.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file code/components/adder.v
+    Info (12023): Found entity 1: adder File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/adder.v Line: 4
+Info (12127): Elaborating entity "pl_riscv_cpu" for the top level hierarchy
+Info (12128): Elaborating entity "riscv_cpu" for hierarchy "riscv_cpu:rvcpu" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v Line: 22
+Info (12128): Elaborating entity "datapath" for hierarchy "riscv_cpu:rvcpu|datapath:dp" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/riscv_cpu.v Line: 20
+Info (12128): Elaborating entity "reset_ff" for hierarchy "riscv_cpu:rvcpu|datapath:dp|reset_ff:pcreg" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 65
+Info (12128): Elaborating entity "adder" for hierarchy "riscv_cpu:rvcpu|datapath:dp|adder:pcadd4" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 66
+Info (12128): Elaborating entity "pl_reg_fd" for hierarchy "riscv_cpu:rvcpu|datapath:dp|pl_reg_fd:plfd" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 71
+Info (12128): Elaborating entity "controller" for hierarchy "riscv_cpu:rvcpu|datapath:dp|controller:c" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 79
+Info (12128): Elaborating entity "main_decoder" for hierarchy "riscv_cpu:rvcpu|datapath:dp|controller:c|main_decoder:md" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/controller.v Line: 19
+Info (12128): Elaborating entity "alu_decoder" for hierarchy "riscv_cpu:rvcpu|datapath:dp|controller:c|alu_decoder:ad" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/controller.v Line: 21
+Info (12128): Elaborating entity "imm_extend" for hierarchy "riscv_cpu:rvcpu|datapath:dp|imm_extend:ext" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 81
+Info (12128): Elaborating entity "reg_file" for hierarchy "riscv_cpu:rvcpu|datapath:dp|reg_file:rf" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 86
+Info (12128): Elaborating entity "pl_reg_de" for hierarchy "riscv_cpu:rvcpu|datapath:dp|pl_reg_de:plde" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 107
+Info (12128): Elaborating entity "alu" for hierarchy "riscv_cpu:rvcpu|datapath:dp|alu:alu" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 120
+Info (12128): Elaborating entity "branching_unit" for hierarchy "riscv_cpu:rvcpu|datapath:dp|branching_unit:bu" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 122
+Info (12128): Elaborating entity "pl_reg_em" for hierarchy "riscv_cpu:rvcpu|datapath:dp|pl_reg_em:plem" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 136
+Info (12128): Elaborating entity "mux4" for hierarchy "riscv_cpu:rvcpu|datapath:dp|mux4:resultmux" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 142
+Info (12128): Elaborating entity "pl_reg_mw" for hierarchy "riscv_cpu:rvcpu|datapath:dp|pl_reg_mw:plmw" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 154
+Info (12128): Elaborating entity "hazard_unit" for hierarchy "riscv_cpu:rvcpu|datapath:dp|hazard_unit:hu" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/components/datapath.v Line: 168
+Info (12128): Elaborating entity "instr_mem" for hierarchy "instr_mem:instrmem" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v Line: 23
+Warning (10850): Verilog HDL warning at instr_mem.v(13): number of words (79) in memory file does not match the number of elements in the address range [0:511] File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v Line: 13
+Warning (10030): Net "instr_ram.data_a" at instr_mem.v(10) has no driver or initial value, using a default initial value '0' File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v Line: 10
+Warning (10030): Net "instr_ram.waddr_a" at instr_mem.v(10) has no driver or initial value, using a default initial value '0' File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v Line: 10
+Warning (10030): Net "instr_ram.we_a" at instr_mem.v(10) has no driver or initial value, using a default initial value '0' File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/instr_mem.v Line: 10
+Info (12128): Elaborating entity "data_mem" for hierarchy "data_mem:datamem" File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/pl_riscv_cpu.v Line: 24
+Warning (276027): Inferred dual-clock RAM node "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|reg_file_arr_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Warning (276027): Inferred dual-clock RAM node "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|reg_file_arr_rtl_1" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "data_mem:datamem|data_ram" is uninferred due to asynchronous read logic File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/code/data_mem.v Line: 12
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "//wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_instr_mem_8ff0214b.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|reg_file_arr_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|reg_file_arr_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif
+Info (12130): Elaborated megafunction instantiation "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0"
+Info (12133): Instantiated megafunction "riscv_cpu:rvcpu|datapath:dp|reg_file:rf|altsyncram:reg_file_arr_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "//wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/pl_riscv_cpu.ram0_reg_file_c5668544.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9oo1.tdf
+    Info (12023): Found entity 1: altsyncram_9oo1 File: //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/db/altsyncram_9oo1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/output_files/pl_riscv_cpu.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 7246 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 225 output pins
+    Info (21061): Implemented 6890 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4925 megabytes
+    Info: Processing ended: Fri Oct 16 19:39:28 2026
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:00:53
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in //wsl.localhost/Ubuntu/home/pranav/Download/Task2/Task_2/pl_riscv_cpu/output_files/pl_riscv_cpu.map.smsg.
+
+
