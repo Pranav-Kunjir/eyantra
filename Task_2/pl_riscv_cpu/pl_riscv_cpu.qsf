@@ -64,6 +64,7 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "5000 ns" -section_id tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb -section_id tb
 set_global_assignment -name EDA_TEST_BENCH_FILE .test/tb.v -section_id tb
+set_global_assignment -name SDC_FILE pl_riscv_cpu.sdc
 set_global_assignment -name VERILOG_FILE code/pl_riscv_cpu.v
 set_global_assignment -name VERILOG_FILE code/riscv_cpu.v
 set_global_assignment -name VERILOG_FILE code/instr_mem.v

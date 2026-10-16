@@ -10,13 +10,15 @@ module riscv_cpu (
     input  [31:0] ReadData,
     output [31:0] Result,
     output [ 2:0] funct3,
-    output [31:0] PCW, ALUResultW, WriteDataW
+    output [31:0] PCW, ALUResultW, WriteDataW,
+    output        StallF
 );
 
 datapath dp (.clk(clk), .reset(reset),
              .PC(PC), .Instr(Instr),
              .MemWrite(MemWrite), .Mem_WrAddr(Mem_WrAddr), .Mem_WrData(Mem_WrData),
              .ReadData(ReadData), .Result(Result), .funct3(funct3),
-             .PCW(PCW), .ALUResultW(ALUResultW), .WriteDataW(WriteDataW));
+             .PCW(PCW), .ALUResultW(ALUResultW), .WriteDataW(WriteDataW),
+             .StallF(StallF));
 
 endmodule

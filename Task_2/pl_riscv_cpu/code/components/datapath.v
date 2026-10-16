@@ -9,11 +9,12 @@ module datapath (
     input  [31:0] ReadData,
     output [31:0] Result,
     output [ 2:0] funct3,
-    output [31:0] PCW, ALUResultW, WriteDataW
+    output [31:0] PCW, ALUResultW, WriteDataW,
+    output        StallF
 );
 
     // ---- hazard / flush -------------------------------------------------
-    wire StallF, StallD, FlushD, FlushE, FlushD_hu, FlushE_hu;
+    wire StallD, FlushD, FlushE, FlushD_hu, FlushE_hu;
 
     // ---- fetch ----------------------------------------------------------
     wire [31:0] InstrF = Instr;
@@ -53,9 +54,10 @@ module datapath (
     wire [31:0] ResultM;
 
     // ---- memory | writeback --------------------------------------------
-    wire [31:0] ResultW;
+    wire [31:0] ResultW, PCPlus4W, lAuiPCW;
     wire [ 4:0] RdW;
     wire        RegWriteW;
+    wire [ 1:0] ResultSrcW;
 
     // ====================================================================
     // Fetch
@@ -65,9 +67,24 @@ module datapath (
     reset_ff #(32) pcreg (clk, reset, StallF, PCNext, PC);
     adder          pcadd4 (PC, 32'd4, PCPlus4F);
 
+    // The instruction memory is a block-RAM ROM with a registered read, so the
+    // instruction presented during a cycle belongs to the PC of the previous
+    // cycle. Register PC and PC+4 alongside it and let IF/ID capture that
+    // matching pair (this makes the fetch path one cycle deeper).
+    reg [31:0] PCF_d, PCPlus4F_d;
+    initial begin
+        PCF_d = 0; PCPlus4F_d = 0;
+    end
+    always @(posedge clk) begin
+        if (!StallF) begin
+            PCF_d      <= PC;
+            PCPlus4F_d <= PCPlus4F;
+        end
+    end
+
     // Pipeline Register 1 -> Fetch | Decode
     pl_reg_fd plfd (.clk(clk), .en(StallD), .clr(FlushD),
-                    .InstrF(InstrF), .PCF(PC), .PCPlus4F(PCPlus4F),
+                    .InstrF(InstrF), .PCF(PCF_d), .PCPlus4F(PCPlus4F_d),
                     .InstrD(InstrD), .PCD(PCD), .PCPlus4D(PCPlus4D));
 
     // ====================================================================
@@ -91,7 +108,7 @@ module datapath (
     assign lAuiPCD  = InstrD[5] ? UpperImmD : AuiPCD;
 
     // Pipeline Register 2 -> Decode | Execute
-    pl_reg_de plde (.clk(clk), .en(1'b0), .clr(FlushE),
+    pl_reg_de plde (.clk(clk), .en(StallD), .clr(FlushE),
                     .RD1D(RD1D), .RD2D(RD2D), .ImmExtD(ImmExtD),
                     .PCD(PCD), .PCPlus4D(PCPlus4D), .AuiPCD(lAuiPCD),
                     .Rs1D(InstrD[19:15]), .Rs2D(InstrD[24:20]), .RdD(InstrD[11:7]),
@@ -138,8 +155,12 @@ module datapath (
     // ====================================================================
     // Memory
     // ====================================================================
-    mux4 #(32) resultmux (.d0(ALUResultM), .d1(ReadData), .d2(PCPlus4M), .d3(lAuiPCM),
-                          .sel(ResultSrcM), .y(ResultM));
+    // Value forwarded from the memory stage. Load data is not available in
+    // this stage (the data memory has a registered read), and the load-use
+    // interlock guarantees a load in M is never forwarded to E, so the
+    // load case is a don't-care here.
+    assign ResultM = (ResultSrcM == 2'b10) ? PCPlus4M :
+                     (ResultSrcM == 2'b11) ? lAuiPCM : ALUResultM;
 
     assign Mem_WrAddr = ALUResultM;
     assign Mem_WrData = WriteDataM;
@@ -148,10 +169,17 @@ module datapath (
 
     // Pipeline Register 4 -> Memory | Writeback
     pl_reg_mw plmw (.clk(clk),
-                    .ResultM(ResultM), .ALUResultM(ALUResultM), .WriteDataM(WriteDataM),
-                    .PCM(PCM), .RdM(RdM), .RegWriteM(RegWriteM),
-                    .ResultW(ResultW), .ALUResultW(ALUResultW), .WriteDataW(WriteDataW),
-                    .PCW(PCW), .RdW(RdW), .RegWriteW(RegWriteW));
+                    .ALUResultM(ALUResultM), .WriteDataM(WriteDataM),
+                    .PCM(PCM), .PCPlus4M(PCPlus4M), .AuiPCM(lAuiPCM),
+                    .RdM(RdM), .RegWriteM(RegWriteM), .ResultSrcM(ResultSrcM),
+                    .ALUResultW(ALUResultW), .WriteDataW(WriteDataW),
+                    .PCW(PCW), .PCPlus4W(PCPlus4W), .AuiPCW(lAuiPCW),
+                    .RdW(RdW), .RegWriteW(RegWriteW), .ResultSrcW(ResultSrcW));
+
+    // Writeback result mux: ALU result, load data (registered memory output,
+    // live during writeback), PC+4 (JAL/JALR) or LUI/AUIPC (resolved in decode)
+    mux4 #(32) resultmux (.d0(ALUResultW), .d1(ReadData), .d2(PCPlus4W), .d3(lAuiPCW),
+                          .sel(ResultSrcW), .y(ResultW));
 
     assign Result = ResultW;
 
@@ -167,7 +195,21 @@ module datapath (
                     .StallF(StallF), .StallD(StallD),
                     .FlushD(FlushD_hu), .FlushE(FlushE_hu));
 
-    assign FlushD = FlushD_hu | reset;
+    // Extra decode flushes for the block-RAM instruction memory latency:
+    // - one cycle when a branch/jump redirects the PC (the wrong-path fetch
+    //   issued before the redirect must not reach decode),
+    // - one cycle after reset (the ROM re-presents the instruction that was
+    //   held during reset).
+    reg PCSrcE_d, rst_d;
+    initial begin
+        PCSrcE_d = 0; rst_d = 0;
+    end
+    always @(posedge clk) begin
+        PCSrcE_d <= PCSrcE;
+        rst_d    <= reset;
+    end
+
+    assign FlushD = FlushD_hu | PCSrcE_d | (rst_d & ~reset) | reset;
     assign FlushE = FlushE_hu | reset;
 
 endmodule
